@@ -16,6 +16,8 @@ export default function NotesPage() {
     content: string;
   }
 
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+  console.log(API_BASE_URL)
   const [notes, setNotes] = useState<Note[]>([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -28,7 +30,7 @@ export default function NotesPage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("http://localhost:5000/notes", {
+      const res = await fetch(`${API_BASE_URL}/notes`, {
         headers: { Authorization: "Bearer " + token },
       });
       if (!res.ok) throw new Error("Gagal mengambil catatan.");
@@ -75,8 +77,8 @@ export default function NotesPage() {
     try {
       const method = editId ? "PUT" : "POST";
       const url = editId
-        ? `http://localhost:5000/notes/${editId}`
-        : "http://localhost:5000/notes";
+        ? `${API_BASE_URL}/notes/${editId}`
+        : `${API_BASE_URL}/notes`;
 
       const res = await fetch(url, {
         method,
@@ -102,7 +104,7 @@ export default function NotesPage() {
   const deleteNote = async (id: number) => {
     setError(null);
     try {
-      const res = await fetch(`http://localhost:5000/notes/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/notes/${id}`, {
         method: "DELETE",
         headers: { Authorization: "Bearer " + token },
       });
