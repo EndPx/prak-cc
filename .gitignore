@@ -1,8 +1,16 @@
+# Node modules
+frontend/node_modules/
+backend/node_modules/
+
+# Build outputs
 frontend/.next/
 frontend/out/
 frontend/.vercel/
 frontend/dist/
-frontend/node_modules/
 
-backend/node_modules/
+# Environment and secret files
 backend/config/serviceAccountKey.json
+.env
+.env.local
+.env.development.local
+.env.production.local
