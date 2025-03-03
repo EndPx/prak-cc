@@ -9,7 +9,6 @@ frontend/.vercel/
 frontend/dist/
 
 # Environment and secret files
-backend/config/serviceAccountKey.json
 .env
 .env.local
 .env.development.local
