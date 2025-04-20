@@ -1,12 +1,8 @@
 const { Sequelize } = require("sequelize");
 
-const db = new Sequelize(
-  process.env.DB_NAME || "notes_db",
-  process.env.DB_USER || "user",
-  process.env.DB_PASSWORD || "passwordroot",
+const db = new Sequelize("notes_db", "root", "",
   {
-    host: process.env.DB_HOST || "127.0.0.1",
-    port: process.env.DB_PORT || "3308",
+    host: "34.42.153.66",
     dialect: "mysql",
   }
 );
